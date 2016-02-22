@@ -96,9 +96,31 @@ public class MSButton
         }
         if(mouseButton == RIGHT)
         {
-            marked = true;
+            marked = !marked;
         }
-        
+         else if(countBombs(r,c)>0)
+         {
+            label = "" + countBombs(r,c);
+         }
+         else
+         {
+            if(isValid(r-1,c) && !buttons[r-1][c].clicked)
+                buttons[r-1][c].mousePressed();
+             if(isValid(r-1,c-1) && !buttons[r-1][c-1].clicked)
+                buttons[r-1][c-1].mousePressed();
+             if(isValid(r-1,c+1) && !buttons[r-1][c+1].clicked)
+                buttons[r-1][c+1].mousePressed();
+             if(isValid(r,c-1) && !buttons[r][c-1].clicked)
+                buttons[r][c-1].mousePressed();
+             if(isValid(r+1,c-1) && !buttons[r+1][c-1].clicked)
+                buttons[r+1][c-1].mousePressed();
+             if(isValid(r+1,c) && !buttons[r+1][c].clicked)
+                buttons[r+1][c].mousePressed();
+             if(isValid(r+1,c+1) && !buttons[r+1][c+1].clicked)
+                buttons[r+1][c+1].mousePressed();
+             if(isValid(r,c+1) && !buttons[r][c+1].clicked)
+                buttons[r][c+1].mousePressed();
+         }
         //your code here
     }
 
