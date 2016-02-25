@@ -3,7 +3,7 @@
 import de.bezier.guido.*;
 public static final int NUM_ROWS = 20;
 public static final int NUM_COLS = 20;
-
+public static final int NUM_BOMBS = 60;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
@@ -30,7 +30,7 @@ void setup ()
 }
 public void setBombs()
 {
-    while(bombs.size()<10)
+    while(bombs.size()<NUM_BOMBS)
     {
         int r = (int)(Math.random()*NUM_ROWS);
         int c = (int)(Math.random()*NUM_COLS);
