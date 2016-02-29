@@ -3,7 +3,7 @@
 import de.bezier.guido.*;
 public static final int NUM_ROWS = 20;
 public static final int NUM_COLS = 20;
-public static final int NUM_BOMBS = 60;
+public static final int NUM_BOMBS = 50;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> bombs = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
 
@@ -230,5 +230,24 @@ public class MSButton
     }
 }
 
+public void keyPressed()
+{
+    if(keyCode == 32)
+    {
+        for(int i = 0; i<NUM_ROWS; i++)
+        {
+            for(int j = 0; j<NUM_COLS; j++)
+            {
+                bombs.remove(buttons[i][j]);
+                buttons[i][j].marked = false;
+                buttons[i][j].clicked = false;
+                buttons[i][j].setLabel(" ");
+            }
+        }
+    
+
+    setBombs();
+    }
+}
 
 
